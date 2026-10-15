@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'M3'
+    }
+
+    stages {
+        stage('Build and Test') {
+            steps {
+                dir('03-largest-of-three') {
+                    bat 'mvn clean test package'
+                }
+            }
+        }
+    }
+}
